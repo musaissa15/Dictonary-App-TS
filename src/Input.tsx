@@ -1,11 +1,27 @@
-import React from 'react'
+import React, { FormEventHandler, ChangeEventHandler } from "react";
 
-type Props = {}
+type Props = {};
 
 const Input = (props: Props) => {
-  return (
-    <div>Input</div>
-  )
-}
+	const handleSubmit = (event: React.FormEvent<HTMLFormElement>): void => {
+		event.preventDefault();
+	};
 
-export default Input
+	const handleChange = (
+		event: React.ChangeEvent<HTMLInputElement> 
+	): void => {
+		console.log(event.target.value);
+		console.log(event);
+	};
+
+	return (
+		<div>
+			<form onSubmit={handleSubmit}>
+				<input type="text" onChange={handleChange} />
+				<button type="submit"> Search</button>
+			</form>
+		</div>
+	);
+};
+
+export default Input;
