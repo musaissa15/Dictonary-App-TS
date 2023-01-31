@@ -1,6 +1,7 @@
 import React, { FormEventHandler, ChangeEventHandler } from "react";
 
-type Props = {};
+type Props = {
+	word: string};
 
 const Input = (props: Props) => {
 	const handleSubmit = (event: React.FormEvent<HTMLFormElement>): void => {
