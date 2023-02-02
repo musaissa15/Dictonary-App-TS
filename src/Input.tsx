@@ -1,5 +1,5 @@
-import React, { FormEventHandler, ChangeEventHandler } from "react";
-
+import React, { useEffect, useState  } from "react";
+import { getWordData } from "./API";
 type Props = {
 	word: string;
 	setWord: (value: string) => void;
@@ -12,14 +12,22 @@ const Input = (props: Props) => {
 
 	const handleChange = (event: React.ChangeEvent<HTMLInputElement>): void => {
 		props.setWord(event.target.value);
-		
 	};
-console.log(props.word);
+
+	const asyncData = async () => {
+		try {
+			const dataFromApi = await getWordData(props.word);
+			console.log(dataFromApi);
+		} catch (error: any) {}
+	};
+	useEffect(() => {
+		asyncData();
+	}, [props.word]);
 
 	return (
 		<div>
 			<form onSubmit={handleSubmit}>
-				<input type="text" onChange={handleChange} />
+				<input type="text" onChange={handleChange} value={props.word} />
 				<button type="submit"> Search</button>
 			</form>
 		</div>
