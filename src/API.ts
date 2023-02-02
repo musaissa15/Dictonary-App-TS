@@ -8,9 +8,11 @@ import axios from "axios"
     const { data } = await axios.get(
 			`https://api.dictionaryapi.dev/api/v2/entries/en/${searchedWord}`
 		);
-   console.log(Object.keys(data));
    
-    return data
+//   console.log(data['0']);
+  
+   
+    return data['0']
 }
  
 
