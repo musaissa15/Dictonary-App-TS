@@ -12,7 +12,7 @@ import axios from "axios"
 //   console.log(data['0']);
   
    
-    return data['0']
+    return data
 }
  
 
