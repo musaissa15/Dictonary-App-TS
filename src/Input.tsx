@@ -6,6 +6,7 @@ type Props = {
 };
 
 const Input = (props: Props) => {
+	const [wordInfo, setWordInfo] = useState([])
 	const handleSubmit = (event: React.FormEvent<HTMLFormElement>): void => {
 		event.preventDefault();
 	};
@@ -17,12 +18,13 @@ const Input = (props: Props) => {
 	const asyncData = async () => {
 		try {
 			const dataFromApi = await getWordData(props.word);
-			console.log(dataFromApi);
+			setWordInfo(dataFromApi);
 		} catch (error: any) {}
 	};
 	useEffect(() => {
 		asyncData();
 	}, [props.word]);
+console.log(typeof(wordInfo));
 
 	return (
 		<div>
@@ -30,6 +32,19 @@ const Input = (props: Props) => {
 				<input type="text" onChange={handleChange} value={props.word} />
 				<button type="submit"> Search</button>
 			</form>
+			<ul>
+				{wordInfo.map((w) => {
+				
+				console.log(w);
+				
+				
+				return (
+					<li>
+						<h2>{w['word']}</h2>
+					</li>
+				);
+			})}
+			</ul>
 		</div>
 	);
 };
