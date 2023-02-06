@@ -24,7 +24,8 @@ const Input = (props: Props) => {
 	useEffect(() => {
 		asyncData();
 	}, [props.word]);
-console.log(typeof(wordInfo));
+
+console.log(typeof wordInfo);
 
 	return (
 		<div>
@@ -34,13 +35,13 @@ console.log(typeof(wordInfo));
 			</form>
 			<ul>
 				{wordInfo.map((w) => {
-				
 				console.log(w);
+				
 				
 				
 				return (
 					<li>
-						<h2>{w['word']}</h2>
+						<h1> {w['0']["phonetic"]} </h1>
 					</li>
 				);
 			})}
