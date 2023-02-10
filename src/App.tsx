@@ -3,11 +3,11 @@ import './App.css';
 import Input from './Input';
 
 function App() {
-  const [word, setWord] = useState<string>('')
+  const [searchWord, setSearchWord] = useState<string>('')
   return (
 		<div className="App">
 			<h1> Dictionary</h1>
-			<Input word={word} setWord={setWord} />
+			<Input searchWord={searchWord} setSearchWord={setSearchWord} />
 		</div>
 	);
 }
