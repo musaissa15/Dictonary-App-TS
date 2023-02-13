@@ -19,7 +19,10 @@ const Input = (props: Props) => {
 		try {
 			const dataFromApi = await getWordData(props.searchWord);
 			setWordInfo(dataFromApi);
-		} catch (error: any) {}
+		} catch(error: any) {
+			console.log(error);
+			
+		}
 	};
 	useEffect(() => {
 		asyncData();
@@ -38,9 +41,10 @@ console.log(typeof wordInfo);
 					console.log(w);
 
 					return (
-						<li>
+						<li key={w.word}>
 							<h1>{w.word}</h1>
 							<h5> {w.phonetic} </h5>
+							
 						</li>
 					);
 				})}
