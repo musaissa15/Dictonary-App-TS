@@ -1,5 +1,17 @@
+type Testobj = {
 
-const dictionary: any=[
+  word?: string,
+  phonetic?: string,
+  phonetics?: [{},{}],
+  meanings?: [{}],
+  license?: {},
+  sourceUrls?:{}
+
+}
+
+
+
+const dictionary: Testobj[]= [
     {
       "word": "book",
       "phonetic": "/buːk/",
@@ -451,5 +463,11 @@ const dictionary: any=[
       ]
     }
 ]
+console.log(dictionary['word']);
   
- console.log(dictionary[0].meanings[0].definitions[0].definition)
+dictionary.map((w) => {
+
+  console.log(w)
+})
+
+export {};
