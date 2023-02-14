@@ -1,17 +1,34 @@
-type Testobj = {
+type Dictionary = {
+  word: string;
+  phonetic: string;
+  phonetics: {
+    text: string;
+    audio: string;
+    sourceUrl?: string;
+    license?: {
+      name: string;
+      url: string;
+    };
+  }[];
+  meanings: {
+    partOfSpeech: string;
+    definitions: {
+      definition: string;
+      synonyms: string[];
+      antonyms: string[];
+      example?: string;
+    }[];
+    synonyms: string[];
+    antonyms: string[];
+  }[];
+  license: {
+    name: string;
+    url: string;
+  };
+  sourceUrls: string[];
+}[];
 
-  word?: string,
-  phonetic?: string,
-  phonetics?: [{},{}],
-  meanings?: [{}],
-  license?: {},
-  sourceUrls?:{}
-
-}
-
-
-
-const dictionary: Testobj[]= [
+const dictionary: Dictionary = [
     {
       "word": "book",
       "phonetic": "/buːk/",
@@ -463,11 +480,10 @@ const dictionary: Testobj[]= [
       ]
     }
 ]
-console.log(dictionary['word']);
+
   
 dictionary.map((w) => {
 
-  console.log(w)
+  console.log(w.meanings[0].definitions[0].definition)
 })
 
-export {};
