@@ -484,6 +484,6 @@ const dictionary: Dictionary = [
   
 dictionary.map((w) => {
 
-  console.log(w.meanings[0].definitions[0].definition)
+  console.log(w.phonetics[0].audio)
 })
 

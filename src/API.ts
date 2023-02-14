@@ -6,6 +6,7 @@ import axios from "axios"
 			`https://api.dictionaryapi.dev/api/v2/entries/en/${searchedWord}`
 		);
    
+
  
     return data
 }
