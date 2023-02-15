@@ -70,15 +70,16 @@ const Input = (props: Props) => {
 			</form>
 			<ul>
 				{wordInfo.map(w => {
-					// console.log(w.phonetics[0].audio);
-					
 					return (
 						<li key={w.word}>
 							<h1>{w.word}</h1>
 							<h5>{w.meanings[0].partOfSpeech} </h5>
 							<h5> {w.phonetic} </h5>
 							<p> {w.meanings[0].definitions[0].definition}</p>
-							<p>{w.meanings[0].definitions[0].example}</p>
+							<p>
+								Example:{w.meanings[0].definitions[0].example}
+							</p>
+							{/* <h6> {w.meanings[0].definitions[2].synonyms} </h6> */}
 							{/* <ReactAudioPlayer
 								src={w.phonetics[0].audio}
 								autoPlay
