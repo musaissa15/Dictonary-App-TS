@@ -79,7 +79,7 @@ const Input = (props: Props) => {
 							<p>
 								Example:{w.meanings[0].definitions[0].example}
 							</p>
-							{/* <h6> {w.meanings[0].definitions[2].synonyms} </h6> */}
+							<h6> {w.meanings[0].definitions[2].synonyms} </h6>
 							{/* <ReactAudioPlayer
 								src={w.phonetics[0].audio}
 								autoPlay
@@ -88,6 +88,7 @@ const Input = (props: Props) => {
 						</li>
 					);
 				})}
+				
 			</ul>
 		</div>
 	);
