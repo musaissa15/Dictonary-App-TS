@@ -11,31 +11,31 @@ type Dictionary = {
 	word: string;
 	phonetic: string;
 	phonetics: {
-		text: string;
-		audio?: string;
-		sourceUrl?: string;
-		license?: {
-			name: string;
-			url: string;
-		};
-	}[];
-	meanings: {
-		partOfSpeech: string;
-		definitions: {
-			definition: string;
-			synonyms: string[];
-			antonyms: string[];
-			example?: string;
-		}[];
-		synonyms: string[];
-		antonyms: string[];
-	}[];
-	license: {
+	  text: string;
+	  audio: string;
+	  sourceUrl?: string;
+	  license?: {
 		name: string;
 		url: string;
+	  };
+	}[];
+	meanings: {
+	  partOfSpeech: string;
+	  definitions: {
+		definition: string;
+		synonyms: string[];
+		antonyms: string[];
+		example?: string;
+	  }[];
+	  synonyms: string[];
+	  antonyms: string[];
+	}[];
+	license: {
+	  name: string;
+	  url: string;
 	};
 	sourceUrls: string[];
-}[];
+  }[];
 const Input = (props: Props) => {
 	const [wordInfo, setWordInfo] = useState<Dictionary>([]);
 	const handleSubmit = (event: React.FormEvent<HTMLFormElement>): void => {
@@ -48,10 +48,12 @@ const Input = (props: Props) => {
 
 	const asyncData = async () => {
 		try {
-			const dataFromApi = await getWordData(props.searchWord);
+			const dataFromApi =await getWordData(props.searchWord);
+			
+			
 			setWordInfo(dataFromApi);
 		} catch (error: any) {
-			console.log(error);
+			// console.log(error);
 		}
 	};
 	useEffect(() => {
@@ -83,11 +85,10 @@ const Input = (props: Props) => {
 							</p>
 							<h3>{w.meanings[0].synonyms.join(" ")}
 							</h3>
-							{/* <ReactAudioPlayer
-								src={w.phonetics[0].audio}
-								autoPlay
-								controls
-							/> */}
+							<h6>{w.license?.name}</h6>
+							<a href={w.license?.url}>license</a>
+							
+							
 						</li>
 					);
 				})}
