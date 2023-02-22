@@ -484,6 +484,6 @@ const dictionary: Dictionary = [
   
 dictionary.map((w) => {
 
-  console.log(w.phonetics[0].audio)
+	console.log(w.license?.name)
 })
 

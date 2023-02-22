@@ -11,31 +11,31 @@ type Dictionary = {
 	word: string;
 	phonetic: string;
 	phonetics: {
-	  text: string;
-	  audio: string;
-	  sourceUrl?: string;
-	  license?: {
-		name: string;
-		url: string;
-	  };
+		text: string;
+		audio: string;
+		sourceUrl?: string;
+		license?: {
+			name: string;
+			url: string;
+		};
 	}[];
 	meanings: {
-	  partOfSpeech: string;
-	  definitions: {
-		definition: string;
+		partOfSpeech: string;
+		definitions: {
+			definition: string;
+			synonyms: string[];
+			antonyms: string[];
+			example?: string;
+		}[];
 		synonyms: string[];
 		antonyms: string[];
-		example?: string;
-	  }[];
-	  synonyms: string[];
-	  antonyms: string[];
 	}[];
 	license: {
-	  name: string;
-	  url: string;
+		name: string;
+		url: string;
 	};
 	sourceUrls: string[];
-  }[];
+}[];
 const Input = (props: Props) => {
 	const [wordInfo, setWordInfo] = useState<Dictionary>([]);
 	const handleSubmit = (event: React.FormEvent<HTMLFormElement>): void => {
@@ -48,9 +48,8 @@ const Input = (props: Props) => {
 
 	const asyncData = async () => {
 		try {
-			const dataFromApi =await getWordData(props.searchWord);
-			
-			
+			const dataFromApi = await getWordData(props.searchWord);
+
 			setWordInfo(dataFromApi);
 		} catch (error: any) {
 			// console.log(error);
@@ -72,8 +71,6 @@ const Input = (props: Props) => {
 			</form>
 			<ul>
 				{wordInfo.map(w => {
-					// console.log();
-					
 					return (
 						<li key={w.word}>
 							<h1>{w.word}</h1>
@@ -83,12 +80,21 @@ const Input = (props: Props) => {
 							<p>
 								Example:{w.meanings[0].definitions[0].example}
 							</p>
-							<h3>{w.meanings[0].synonyms.join(" ")}
-							</h3>
-							<h6>{w.license?.name}</h6>
-							<a href={w.license?.url}>license</a>
-							
-							
+							<h3>{w.meanings[0].synonyms.join(" ")}</h3>
+							<a href={w.license?.url}>{w.license?.name}</a>
+							{w.phonetics.map(phonetic => (
+								<div>
+									<a href={phonetic.sourceUrl}>
+										{" "}
+										<p>More Info</p>{" "}
+									</a>
+									<ReactAudioPlayer
+										src={phonetic.audio}
+										autoPlay
+										controls
+									/>
+								</div>
+							))}
 						</li>
 					);
 				})}
