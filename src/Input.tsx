@@ -43,7 +43,9 @@ const Input = (props: Props) => {
 	};
 
 	const handleChange = (event: React.ChangeEvent<HTMLInputElement>): void => {
-		props.setSearchWord(event.target.value);
+	
+			props.setSearchWord(event.target.value);
+		
 	};
 
 	const asyncData = async () => {
@@ -56,7 +58,9 @@ const Input = (props: Props) => {
 		}
 	};
 	useEffect(() => {
-		asyncData();
+		
+			asyncData();
+	
 	}, [props.searchWord]);
 
 	return (
@@ -71,6 +75,8 @@ const Input = (props: Props) => {
 			</form>
 			<ul>
 				{wordInfo.map(w => {
+					console.log(w.phonetics[0]);
+
 					return (
 						<li key={w.word}>
 							<h1>{w.word}</h1>
@@ -86,7 +92,7 @@ const Input = (props: Props) => {
 								<div>
 									<a href={phonetic.sourceUrl}>
 										{" "}
-										<p>More Info</p>{" "}
+										<p>More...</p>{" "}
 									</a>
 									<ReactAudioPlayer
 										src={phonetic.audio}
