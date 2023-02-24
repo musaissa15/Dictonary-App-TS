@@ -481,9 +481,4 @@ const dictionary: Dictionary = [
     }
 ]
 
-  
-dictionary.map((w) => {
-
-	console.log(w.license?.name)
-})
 
