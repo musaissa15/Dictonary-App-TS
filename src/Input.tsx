@@ -93,11 +93,11 @@ const Input = (props: Props) => {
 							<a href={w.license?.url}>{w.license?.name}</a>
 							{w.phonetics.map(phonetic => (
 								<div>
-									
-									<a href={phonetic.sourceUrl}>
+									{phonetic.sourceUrl ? <a href={phonetic.sourceUrl}>
 										
 										<p>More...</p>
-									</a>
+									</a>: null}
+									
 									{phonetic.audio ?<ReactAudioPlayer
 										src={phonetic.audio}
 										
