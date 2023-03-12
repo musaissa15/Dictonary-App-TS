@@ -61,17 +61,17 @@ const Input = (props: Props) => {
 		
 			asyncData();
 	
-	}, []);
+	}, [props.searchWord]);
 
 	return (
 		<div>
-			<form onSubmit={handleSubmit}>
+			<form  onSubmit={handleSubmit}>
 				<input
 					type='text'
 					onChange={handleChange}
 					value={props.searchWord}
 				/>
-				<button onClick={handleChange}type='submit'> Search</button>
+				<button type='submit'> Search</button>
 			</form>
 			<ul>
 				{wordInfo.map(w => {
@@ -93,15 +93,17 @@ const Input = (props: Props) => {
 							<a href={w.license?.url}>{w.license?.name}</a>
 							{w.phonetics.map(phonetic => (
 								<div>
+									
 									<a href={phonetic.sourceUrl}>
-										{" "}
-										<p>More...</p>{" "}
+										
+										<p>More...</p>
 									</a>
-									<ReactAudioPlayer
+									{phonetic.audio ?<ReactAudioPlayer
 										src={phonetic.audio}
 										
 										controls
-									/>
+									/>: null}
+									
 								</div>
 							))}
 						</li>
