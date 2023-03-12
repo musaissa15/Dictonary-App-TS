@@ -43,9 +43,7 @@ const Input = (props: Props) => {
 	};
 
 	const handleChange = (event: any): void => {
-	
-			props.setSearchWord(event.target.value);
-		
+		props.setSearchWord(event.target.value);
 	};
 
 	const asyncData = async () => {
@@ -58,14 +56,12 @@ const Input = (props: Props) => {
 		}
 	};
 	useEffect(() => {
-		
-			asyncData();
-	
+		asyncData();
 	}, [props.searchWord]);
 
 	return (
 		<div>
-			<form  onSubmit={handleSubmit}>
+			<form onSubmit={handleSubmit}>
 				<input
 					type='text'
 					onChange={handleChange}
@@ -75,35 +71,35 @@ const Input = (props: Props) => {
 			</form>
 			<ul>
 				{wordInfo.map(w => {
-					
-
-
-					
-
 					return (
 						<li>
 							<h1>{w.word}</h1>
 							<h5>{w.meanings[0].partOfSpeech} </h5>
 							<h5> {w.phonetic} </h5>
 							<p> {w.meanings[0].definitions[0].definition}</p>
-							<p>
-								Example:{w.meanings[0].definitions[0].example}
-							</p>
+							{w.meanings[0].definitions[0].example ? (
+								<p>
+									Example:
+									{w.meanings[0].definitions[0].example}
+								</p>
+							) : null}
+
 							<h3>{w.meanings[0].synonyms.join(" ")}</h3>
 							<a href={w.license?.url}>{w.license?.name}</a>
 							{w.phonetics.map(phonetic => (
 								<div>
-									{phonetic.sourceUrl ? <a href={phonetic.sourceUrl}>
-										
-										<p>More...</p>
-									</a>: null}
-									
-									{phonetic.audio ?<ReactAudioPlayer
-										src={phonetic.audio}
-										
-										controls
-									/>: null}
-									
+									{phonetic.sourceUrl ? (
+										<a href={phonetic.sourceUrl}>
+											<p>More...</p>
+										</a>
+									) : null}
+
+									{phonetic.audio ? (
+										<ReactAudioPlayer
+											src={phonetic.audio}
+											controls
+										/>
+									) : null}
 								</div>
 							))}
 						</li>
