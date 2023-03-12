@@ -85,7 +85,8 @@ const Input = (props: Props) => {
 							) : null}
 
 							<h3>{w.meanings[0].synonyms.join(" ")}</h3>
-							<a href={w.license?.url}>{w.license?.name}</a>
+							{w.license ? <a href={w.license?.url}>{w.license?.name}</a> : null}
+						
 							{w.phonetics.map(phonetic => (
 								<div>
 									{phonetic.sourceUrl ? (
