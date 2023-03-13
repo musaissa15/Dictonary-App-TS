@@ -36,19 +36,19 @@ type Dictionary = {
 	};
 	sourceUrls: string[];
 }[];
-const Input = (props: Props) => {
+const Input=({searchWord, setSearchWord}: Props) => {
 	const [wordInfo, setWordInfo] = useState<Dictionary>([]);
-	const handleSubmit = (event: any): void => {
+	const handleSubmit = (event:  any): void => {
 		event.preventDefault();
 	};
 
 	const handleChange = (event: any): void => {
-		props.setSearchWord(event.target.value);
+		setSearchWord(event.target.value);
 	};
 
 	const asyncData = async () => {
 		try {
-			const dataFromApi = await getWordData(props.searchWord);
+			const dataFromApi = await getWordData(searchWord);
 
 			setWordInfo(dataFromApi);
 		} catch (error: any) {
@@ -57,15 +57,15 @@ const Input = (props: Props) => {
 	};
 	useEffect(() => {
 		asyncData();
-	}, [props.searchWord]);
+	}, [searchWord]);
 
 	return (
 		<div>
 			<form onSubmit={handleSubmit}>
 				<input
 					type='text'
-					onChange={handleChange}
-					value={props.searchWord}
+					onChange ={handleChange}
+					value={searchWord}
 				/>
 				<button type='submit'> Search</button>
 			</form>
