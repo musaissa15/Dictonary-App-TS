@@ -83,10 +83,22 @@ const Input = (props: Props) => {
 									{w.meanings[0].definitions[0].example}
 								</p>
 							) : null}
+							{w.meanings[0].synonyms.length === 1 ? (
+								<h3>
+									Synonym: {w.meanings[0].synonyms.join(" ")}
+								</h3>
+							) : w.meanings[0].synonyms.length > 1 ? (
+								<h3>
+									Synonyms: {w.meanings[0].synonyms.join(" ")}
+								</h3>
+							) : w.meanings[0].synonyms.length === 0 ? (
+								null
+							) : null}
 
-							<h3>{w.meanings[0].synonyms.join(" ")}</h3>
-							{w.license ? <a href={w.license?.url}>{w.license?.name}</a> : null}
-						
+							{w.license ? (
+								<a href={w.license?.url}>{w.license?.name}</a>
+							) : null}
+
 							{w.phonetics.map(phonetic => (
 								<div>
 									{phonetic.sourceUrl ? (
