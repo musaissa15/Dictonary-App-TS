@@ -5,8 +5,8 @@ import Input from './Input';
 function App() {
   const [searchWord, setSearchWord] = useState<string>('')
   return (
-		<div className="App">
-			<h1> Dictionary</h1>
+		<div className="App" >
+			<h1 className="text-3xl font-bold underline"> Dictionary</h1>
 			<Input searchWord={searchWord} setSearchWord={setSearchWord} />
 		</div>
 	);
