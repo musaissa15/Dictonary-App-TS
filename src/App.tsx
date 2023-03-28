@@ -6,7 +6,7 @@ function App() {
   const [searchWord, setSearchWord] = useState<string>('')
   return (
 		<div className="App" >
-			<h1 className="text-3xl font-bold underline"> Dictionary</h1>
+			<h1 className="text-3xl font-bold underline test"> Dictionary</h1>
 			<Input searchWord={searchWord} setSearchWord={setSearchWord} />
 		</div>
 	);

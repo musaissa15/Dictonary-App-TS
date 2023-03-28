@@ -3,6 +3,9 @@
   text-align: center;
 }
 
+.test{
+  color: green;
+}
 .App-logo {
   height: 40vmin;
   pointer-events: none;
