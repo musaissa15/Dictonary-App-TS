@@ -66,6 +66,8 @@ const Input=({searchWord, setSearchWord}: Props) => {
 					type='text'
 					onChange ={handleChange}
 					value={searchWord}
+					 className="object-center 
+    "
 				/>
 				<button type='submit'> Search</button>
 			</form>
@@ -111,6 +113,7 @@ const Input=({searchWord, setSearchWord}: Props) => {
 										<ReactAudioPlayer
 											src={phonetic.audio}
 											controls
+											className=" items-center"
 										/>
 									) : null}
 								</div>
