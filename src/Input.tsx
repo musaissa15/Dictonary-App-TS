@@ -69,10 +69,10 @@ const Input=({searchWord, setSearchWord}: Props) => {
 				/>
 				<button type='submit'> Search</button>
 			</form>
-			<ul>
+			<ul >
 				{wordInfo.map(w => {
 					return (
-						<li>
+						<li >
 							<h1>{w.word}</h1>
 							<h5>{w.meanings[0].partOfSpeech} </h5>
 							<h5> {w.phonetic} </h5>
@@ -89,7 +89,7 @@ const Input=({searchWord, setSearchWord}: Props) => {
 								</h3>
 							) : w.meanings[0].synonyms.length > 1 ? (
 								<h3>
-									Synonyms: {w.meanings[0].synonyms.join(" ")}
+									Synonyms: {w.meanings[0].synonyms.join(", ")}
 								</h3>
 							) : w.meanings[0].synonyms.length === 0 ? (
 								null
