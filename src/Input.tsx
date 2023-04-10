@@ -65,7 +65,7 @@ const Input = ({searchWord, setSearchWord}: Props) => {
 			<div className="flex justify-start border-b-4 title">
 					<h1 className=' inline-block md:inline text-4xl '> Dictionary</h1>
 					</div>
-				<div className='  mx-auto text-pink-600 form'>
+				<div className=' mx-auto text-pink-600 form'>
 					<input
 						type='text'
 						onChange={handleChange}
@@ -88,9 +88,11 @@ const Input = ({searchWord, setSearchWord}: Props) => {
 				{wordInfo.map(w => {
 					return (
 						<li>
-							<h1>{w.word}</h1>
-							<h5>{w.meanings[0].partOfSpeech} </h5>
-							<h5> {w.phonetic} </h5>
+							<div className="flex justify-center">
+							<h1 className="text-4xl font-bold">{w.word}</h1>
+							<h5 className="mt-2 ml-1"> {w.phonetic} </h5>
+								</div>
+								<h5>{w.meanings[0].partOfSpeech} </h5>
 							<p> {w.meanings[0].definitions[0].definition}</p>
 							{w.meanings[0].definitions[0].example ? (
 								<p>
@@ -126,7 +128,7 @@ const Input = ({searchWord, setSearchWord}: Props) => {
 										<ReactAudioPlayer
 											src={phonetic.audio}
 											controls
-											className=' items-center'
+											className='inline'
 										/>
 									) : null}
 								</div>
