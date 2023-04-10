@@ -88,18 +88,11 @@ const Input = ({searchWord, setSearchWord}: Props) => {
 				{wordInfo.map(w => {
 					return (
 						<li>
-							<div className="flex justify-center">
+							<div className="word-container">
+							<div className="flex justify-left">
 							<h1 className="text-4xl font-bold">{w.word}</h1>
 							<h5 className="mt-2 ml-1"> {w.phonetic} </h5>
 								</div>
-								<h5>{w.meanings[0].partOfSpeech} </h5>
-							<p> {w.meanings[0].definitions[0].definition}</p>
-							{w.meanings[0].definitions[0].example ? (
-								<p>
-									Example:
-									{w.meanings[0].definitions[0].example}
-								</p>
-							) : null}
 							{w.meanings[0].synonyms.length === 1 ? (
 								<h3>
 									Synonym: {w.meanings[0].synonyms.join(" ")}
@@ -114,6 +107,14 @@ const Input = ({searchWord, setSearchWord}: Props) => {
 
 							{w.license ? (
 								<a href={w.license?.url}>{w.license?.name}</a>
+							) : null}
+								<h5>{w.meanings[0].partOfSpeech} </h5>
+							<p> {w.meanings[0].definitions[0].definition}</p>
+							{w.meanings[0].definitions[0].example ? (
+								<p>
+									Example:
+									{w.meanings[0].definitions[0].example}
+								</p>
 							) : null}
 
 							{w.phonetics.map(phonetic => (
@@ -133,6 +134,7 @@ const Input = ({searchWord, setSearchWord}: Props) => {
 									) : null}
 								</div>
 							))}
+								</div>
 						</li>
 					);
 				})}

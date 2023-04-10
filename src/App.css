@@ -1,51 +1,60 @@
-
 .App {
-  text-align: center;
-  background-color: #2B3A55;
+	text-align: center;
+	background-color: #2b3a55;
 }
 
-.title{
-  background-color: #CE7777;
-  color: #F2E5E5;
-  padding: 20px;
+.title {
+	background-color: #ce7777;
+	color: #f2e5e5;
+	padding: 20px;
 }
-.form{
-  background-color: #E8C4C4;
-  padding: 10px;
+.form {
+	background-color: #e8c4c4;
+	padding: 10px;
 }
 .App-logo {
-  height: 40vmin;
-  pointer-events: none;
+	height: 40vmin;
+	pointer-events: none;
 }
-.audio-player{
-  display: inline;
-}
-
-.button{
-  margin-right: 10px;
-  margin-left: 10px;
-  padding: 5px;
-  background-color: #CE7777;
-  color: #F2E5E5;
-}
-.input{
-  color: #F2E5E5;
-background-color: #2B3A55;
-}
-::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
-  color: #F2E5E5;
-/* Firefox */
+.audio-player {
+	display: inline;
 }
 
-:-ms-input-placeholder { /* Internet Explorer 10-11 */
-  color: #F2E5E5;
+.button {
+	margin-right: 10px;
+	margin-left: 10px;
+	padding: 5px;
+	background-color: #ce7777;
+	color: #f2e5e5;
+}
+.input {
+	color: #f2e5e5;
+	background-color: #2b3a55;
 }
 
-::-ms-input-placeholder { /* Microsoft Edge */
-  color: #F2E5E5;
+.word-container {
+	background-color: #ce7777;
+	padding: 25px;
+	margin-right: 80px;
+	margin-left: 80px;
+	margin-bottom: 80px;
+  text-align: left;
+}
+::placeholder {
+	/* Chrome, Firefox, Opera, Safari 10.1+ */
+	color: #f2e5e5;
+	/* Firefox */
 }
 
+:-ms-input-placeholder {
+	/* Internet Explorer 10-11 */
+	color: #f2e5e5;
+}
 
+::-ms-input-placeholder {
+	/* Microsoft Edge */
+	color: #f2e5e5;
+}
 
 /* .App-header {
   background-color: #030f34;
@@ -57,7 +66,3 @@ background-color: #2B3A55;
   font-size: calc(10px + 2vmin);
   color: white;
 } */
-
-
-
-
