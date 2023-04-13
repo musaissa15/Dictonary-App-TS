@@ -98,16 +98,13 @@ const Input = ({searchWord, setSearchWord}: Props) => {
 									Synonym: {w.meanings[0].synonyms.join(" ")}
 								</h3>
 							) : w.meanings[0].synonyms.length > 1 ? (
-								<h3>
+								<h3 className="border-b-4">
 									Synonyms:{" "}
 									{w.meanings[0].synonyms.join(", ")}
 								</h3>
 							) : w.meanings[0].synonyms.length ===
 							  0 ? null : null}
 
-							{w.license ? (
-								<a href={w.license?.url}>{w.license?.name}</a>
-							) : null}
 								<h5>{w.meanings[0].partOfSpeech} </h5>
 							<p> {w.meanings[0].definitions[0].definition}</p>
 							{w.meanings[0].definitions[0].example ? (
@@ -134,6 +131,9 @@ const Input = ({searchWord, setSearchWord}: Props) => {
 									) : null}
 								</div>
 							))}
+							{w.license ? (
+								<a href={w.license?.url}>{w.license?.name}</a>
+							) : null}
 								</div>
 						</li>
 					);
