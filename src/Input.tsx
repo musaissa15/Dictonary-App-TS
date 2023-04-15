@@ -90,8 +90,8 @@ const Input = ({searchWord, setSearchWord}: Props) => {
 						<li>
 							<div className="word-container">
 							<div className="flex justify-left">
-							<h1 className="text-4xl font-bold">{w.word}</h1>
-								<h5 className="mt-2 ml-1">{w.meanings[0].partOfSpeech} </h5>
+							<h1 className="text-4xl font-bold">{w.word.charAt(0).toUpperCase() + w.word.slice(1)}</h1>
+								<h5 className="mt-2 ml-1">{w.meanings[0].partOfSpeech.charAt(0).toUpperCase() + w.meanings[0].partOfSpeech.slice(1)} </h5>
 								</div>
 							<h5 className="font-bold"> {w.phonetic} </h5>
 							{w.meanings[0].synonyms.length === 1 ? (
@@ -100,7 +100,7 @@ const Input = ({searchWord, setSearchWord}: Props) => {
 								</h3>
 							) : w.meanings[0].synonyms.length > 1 ? (
 								<h3 className="border-b-4">
-									Synonyms:{" "}
+									Synonyms:
 									{w.meanings[0].synonyms.join(", ")}
 								</h3>
 							) : w.meanings[0].synonyms.length ===
