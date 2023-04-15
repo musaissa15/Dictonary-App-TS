@@ -130,7 +130,7 @@ const Input = ({searchWord, setSearchWord}: Props) => {
 										<ReactAudioPlayer
 											src={phonetic.audio}
 											controls
-											className='flex'
+											className='flex audio-player'
 										/>
 									) : null}
 								</div>
