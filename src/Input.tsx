@@ -91,8 +91,9 @@ const Input = ({searchWord, setSearchWord}: Props) => {
 							<div className="word-container">
 							<div className="flex justify-left">
 							<h1 className="text-4xl font-bold">{w.word}</h1>
-							<h5 className="mt-2 ml-1"> {w.phonetic} </h5>
+								<h5 className="mt-2 ml-1">{w.meanings[0].partOfSpeech} </h5>
 								</div>
+							<h5 className="font-bold"> {w.phonetic} </h5>
 							{w.meanings[0].synonyms.length === 1 ? (
 								<h3>
 									Synonym: {w.meanings[0].synonyms.join(" ")}
@@ -105,7 +106,6 @@ const Input = ({searchWord, setSearchWord}: Props) => {
 							) : w.meanings[0].synonyms.length ===
 							  0 ? null : null}
 
-								<h5>{w.meanings[0].partOfSpeech} </h5>
 							<p> {w.meanings[0].definitions[0].definition}</p>
 							{w.meanings[0].definitions[0].example ? (
 								<p>
@@ -123,10 +123,14 @@ const Input = ({searchWord, setSearchWord}: Props) => {
 									) : null}
 
 									{phonetic.audio ? (
+										
+										
+
+										
 										<ReactAudioPlayer
 											src={phonetic.audio}
 											controls
-											className='inline'
+											className='flex'
 										/>
 									) : null}
 								</div>
