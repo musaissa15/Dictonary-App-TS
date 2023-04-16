@@ -62,9 +62,12 @@ const Input = ({searchWord, setSearchWord}: Props) => {
 	return (
 		<div>
 			<form onSubmit={handleSubmit}>
-			<div className="flex justify-start border-b-4 title">
-					<h1 className=' inline-block md:inline text-4xl '> Dictionary</h1>
-					</div>
+				<div className='flex justify-start border-b-4 title'>
+					<h1 className=' inline-block md:inline text-4xl '>
+						{" "}
+						Dictionary
+					</h1>
+				</div>
 				<div className=' mx-auto text-pink-600 form'>
 					<input
 						type='text'
@@ -78,8 +81,7 @@ const Input = ({searchWord, setSearchWord}: Props) => {
 						className='button rounded-lg border-2 border-red-200'>
 						Search
 					</button>
-					</div>
-					
+				</div>
 			</form>
 			<br />
 			<br />
@@ -88,58 +90,73 @@ const Input = ({searchWord, setSearchWord}: Props) => {
 				{wordInfo.map(w => {
 					return (
 						<li>
-							<div className="word-container">
-								<div className="border-b-4">
-							<div className="flex justify-left ">
-							<h1 className="text-4xl font-bold">{w.word.charAt(0).toUpperCase() + w.word.slice(1)}</h1>
-								<h5 className="mt-2 ml-1">{w.meanings[0].partOfSpeech.charAt(0).toUpperCase() + w.meanings[0].partOfSpeech.slice(1)} </h5>
+							<div className='word-container'>
+								<div className='border-b-4'>
+									<div className='flex justify-left '>
+										<h1 className='text-4xl font-bold'>
+											{w.word.charAt(0).toUpperCase() +
+												w.word.slice(1)}
+										</h1>
+										<h5 className='mt-2 ml-1'>
+											{w.meanings[0].partOfSpeech
+												.charAt(0)
+												.toUpperCase() +
+												w.meanings[0].partOfSpeech.slice(
+													1
+												)}{" "}
+										</h5>
+									</div>
+									<h5 className='font-bold'>
+										{" "}
+										{w.phonetic}{" "}
+									</h5>
+									{w.meanings[0].synonyms.length === 1 ? (
+										<h3>
+											Synonym:{" "}
+											{w.meanings[0].synonyms.join(" ")}
+										</h3>
+									) : w.meanings[0].synonyms.length > 1 ? (
+										<h3>
+											Synonyms:
+											{w.meanings[0].synonyms.join(", ")}
+										</h3>
+									) : w.meanings[0].synonyms.length ===
+									  0 ? null : null}
 								</div>
-							<h5 className="font-bold"> {w.phonetic} </h5>
-							{w.meanings[0].synonyms.length === 1 ? (
-								<h3>
-									Synonym: {w.meanings[0].synonyms.join(" ")}
-								</h3>
-							) : w.meanings[0].synonyms.length > 1 ? (
-								<h3>
-									Synonyms:
-									{w.meanings[0].synonyms.join(", ")}
-								</h3>
-							) : w.meanings[0].synonyms.length ===
-							  0 ? null : null}
-</div>
-							<p> {w.meanings[0].definitions[0].definition}</p>
-							{w.meanings[0].definitions[0].example ? (
 								<p>
-									Example:
-									{w.meanings[0].definitions[0].example}
+									{" "}
+									{w.meanings[0].definitions[0].definition}
 								</p>
-							) : null}
+								{w.meanings[0].definitions[0].example ? (
+									<p>
+										Example:
+										{w.meanings[0].definitions[0].example}
+									</p>
+								) : null}
 
-							{w.phonetics.map(phonetic => (
-								<div>
-									{phonetic.sourceUrl ? (
-										<a href={phonetic.sourceUrl}>
-											<p>More...</p>
-										</a>
-									) : null}
+								{w.phonetics.map(phonetic => (
+									<div>
+										{phonetic.sourceUrl ? (
+											<a href={phonetic.sourceUrl}>
+												<p>More...</p>
+											</a>
+										) : null}
 
-									{phonetic.audio ? (
-										
-										
-
-										
-										<ReactAudioPlayer
-											src={phonetic.audio}
-											controls
-											className='flex audio-player'
-										/>
-									) : null}
-								</div>
-							))}
-							{w.license ? (
-								<a href={w.license?.url}>{w.license?.name}</a>
-							) : null}
-								</div>
+										{phonetic.audio ? (
+											<ReactAudioPlayer
+												src={phonetic.audio}
+												controls
+												className='flex audio-player'
+											/>
+										) : null}
+									</div>
+								))}
+								{w.license ? (
+									<a href={w.license?.url}>
+										{w.license?.name}
+									</a>
+								) : null}
+							</div>
 						</li>
 					);
 				})}
