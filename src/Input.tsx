@@ -149,13 +149,26 @@ const Input = ({searchWord, setSearchWord}: Props) => {
 											</a>
 										) : null} */}
 
-										{phonetic.audio ? (
+										{phonetic.audio.endsWith('uk.mp3') ? (
+											<div>
+											<h2> Uk prononciation</h2>
 											<ReactAudioPlayer
 												src={phonetic.audio}
 												controls
 												className='flex audio-player'
-											/>
-											) : null}
+												/>
+												</div>
+										):phonetic.audio.endsWith('us.mp3')? 
+												<div>
+													<h2> US prononciation</h2>
+											<ReactAudioPlayer
+												src={phonetic.audio}
+												controls
+												className='flex audio-player'
+												/>
+												
+									</div>	 :null
+									}
 											<br />
 									</div>
 								))}
