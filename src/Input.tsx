@@ -89,7 +89,8 @@ const Input = ({searchWord, setSearchWord}: Props) => {
 					return (
 						<li>
 							<div className="word-container">
-							<div className="flex justify-left">
+								<div className="border-b-4">
+							<div className="flex justify-left ">
 							<h1 className="text-4xl font-bold">{w.word.charAt(0).toUpperCase() + w.word.slice(1)}</h1>
 								<h5 className="mt-2 ml-1">{w.meanings[0].partOfSpeech.charAt(0).toUpperCase() + w.meanings[0].partOfSpeech.slice(1)} </h5>
 								</div>
@@ -99,13 +100,13 @@ const Input = ({searchWord, setSearchWord}: Props) => {
 									Synonym: {w.meanings[0].synonyms.join(" ")}
 								</h3>
 							) : w.meanings[0].synonyms.length > 1 ? (
-								<h3 className="border-b-4">
+								<h3>
 									Synonyms:
 									{w.meanings[0].synonyms.join(", ")}
 								</h3>
 							) : w.meanings[0].synonyms.length ===
 							  0 ? null : null}
-
+</div>
 							<p> {w.meanings[0].definitions[0].definition}</p>
 							{w.meanings[0].definitions[0].example ? (
 								<p>
