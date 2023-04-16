@@ -105,14 +105,16 @@ const Input = ({searchWord, setSearchWord}: Props) => {
 													1
 												)}{" "}
 										</h5>
+									
 									</div>
 									<h5 className='font-bold'>
 										{" "}
-										{w.phonetic}{" "}
+										{w.phonetic}
 									</h5>
+									
 									{w.meanings[0].synonyms.length === 1 ? (
 										<h3>
-											Synonym:{" "}
+											Synonym:
 											{w.meanings[0].synonyms.join(" ")}
 										</h3>
 									) : w.meanings[0].synonyms.length > 1 ? (
@@ -121,26 +123,31 @@ const Input = ({searchWord, setSearchWord}: Props) => {
 											{w.meanings[0].synonyms.join(", ")}
 										</h3>
 									) : w.meanings[0].synonyms.length ===
-									  0 ? null : null}
+										0? null:null}
+									
 								</div>
+								<br />
 								<p>
 									{" "}
 									{w.meanings[0].definitions[0].definition}
 								</p>
+								
 								{w.meanings[0].definitions[0].example ? (
-									<p>
-										Example:
+									<div className='flex justify-left '>
+									<p className="font-bold"> Example:</p> 
+										<p>
 										{w.meanings[0].definitions[0].example}
-									</p>
+										</p>
+										</div>
 								) : null}
-
+<br />
 								{w.phonetics.map(phonetic => (
 									<div>
-										{phonetic.sourceUrl ? (
+										{/* {phonetic.sourceUrl ? (
 											<a href={phonetic.sourceUrl}>
 												<p>More...</p>
 											</a>
-										) : null}
+										) : null} */}
 
 										{phonetic.audio ? (
 											<ReactAudioPlayer
@@ -148,7 +155,8 @@ const Input = ({searchWord, setSearchWord}: Props) => {
 												controls
 												className='flex audio-player'
 											/>
-										) : null}
+											) : null}
+											<br />
 									</div>
 								))}
 								{w.license ? (
