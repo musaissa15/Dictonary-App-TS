@@ -90,7 +90,7 @@ const Input = ({searchWord, setSearchWord}: Props) => {
 				{wordInfo.map(w => {
 					return (
 						<li>
-							<div className='word-container'>
+							<div className='word-container text-center sm:text-left'>
 								<div className='border-b-4'>
 									<div className='flex justify-left '>
 										<h1 className='text-4xl font-bold'>
@@ -133,25 +133,18 @@ const Input = ({searchWord, setSearchWord}: Props) => {
 								</p>
 								
 								{w.meanings[0].definitions[0].example ? (
-									<div className='flex justify-left '>
-									<p className="font-bold"> Example:</p> 
+									
 										<p>
-										{w.meanings[0].definitions[0].example}
+										<p className="font-bold"> Example: </p> {w.meanings[0].definitions[0].example}
 										</p>
-										</div>
+										// </div>
 								) : null}
 <br />
 								{w.phonetics.map(phonetic => (
 									<div>
-										{/* {phonetic.sourceUrl ? (
-											<a href={phonetic.sourceUrl}>
-												<p>More...</p>
-											</a>
-										) : null} */}
-
 										{phonetic.audio.endsWith('uk.mp3') ? (
 											<div>
-											<h2> Uk prononciation</h2>
+											<h2 className='font-bold'> Uk prononciation</h2>
 											<ReactAudioPlayer
 												src={phonetic.audio}
 												controls
@@ -160,7 +153,7 @@ const Input = ({searchWord, setSearchWord}: Props) => {
 												</div>
 										):phonetic.audio.endsWith('us.mp3')? 
 												<div>
-													<h2> US prononciation</h2>
+													<h2 className='font-bold' > US prononciation</h2>
 											<ReactAudioPlayer
 												src={phonetic.audio}
 												controls
