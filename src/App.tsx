@@ -8,6 +8,7 @@ function App() {
 		<div className="App" >
 			
 			<Input searchWord={searchWord} setSearchWord={setSearchWord} />
+			
 		</div>
 	);
 }
