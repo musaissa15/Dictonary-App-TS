@@ -182,6 +182,7 @@ const Input = ({searchWord, setSearchWord}: Props) => {
 					);
 				})}
 			</ul>
+			
 		</div>
 	);
 };
