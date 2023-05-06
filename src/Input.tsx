@@ -58,13 +58,14 @@ const Input = ({searchWord, setSearchWord}: Props) => {
 	useEffect(() => {
 		asyncData();
 	}, [searchWord]);
+	console.log(wordInfo[0].phonetics);
 
 	return (
 		<div>
 			<form onSubmit={handleSubmit}>
 				<div className='flex justify-start border-b-4 title'>
 					<h1 className=' inline-block md:inline text-4xl '>
-						{" "}
+						
 						Dictionary
 					</h1>
 				</div>
@@ -103,15 +104,11 @@ const Input = ({searchWord, setSearchWord}: Props) => {
 												.toUpperCase() +
 												w.meanings[0].partOfSpeech.slice(
 													1
-												)}{" "}
+												)}
 										</h5>
-									
 									</div>
-									<h5 className='font-bold'>
-										{" "}
-										{w.phonetic}
-									</h5>
-									
+									<h5 className='font-bold'> {w.phonetic}</h5>
+
 									{w.meanings[0].synonyms.length === 1 ? (
 										<h3>
 											Synonym:
@@ -123,46 +120,52 @@ const Input = ({searchWord, setSearchWord}: Props) => {
 											{w.meanings[0].synonyms.join(", ")}
 										</h3>
 									) : w.meanings[0].synonyms.length ===
-										0? null:null}
-									
+									  0 ? null : null}
 								</div>
 								<br />
 								<p>
 									{" "}
 									{w.meanings[0].definitions[0].definition}
 								</p>
-								
+
 								{w.meanings[0].definitions[0].example ? (
-									
-										<p>
-										<p className="font-bold"> Example: </p> {w.meanings[0].definitions[0].example}
-										</p>
-										// </div>
-								) : null}
-<br />
+									<p>
+										<p className='font-bold'> Example: </p>{" "}
+										{w.meanings[0].definitions[0].example}
+									</p>
+								) : // </div>
+								null}
+								<br />
 								{w.phonetics.map(phonetic => (
 									<div>
-										{phonetic.audio.endsWith('uk.mp3') ? (
+										{phonetic.audio.endsWith("uk.mp3") ? (
 											<div>
-											<h2 className='font-bold'> Uk prononciation</h2>
-											<ReactAudioPlayer
-												src={phonetic.audio}
-												controls
-												className='flex audio-player'
+												<h2 className='font-bold'>
+													
+													Uk pronunciation
+												</h2>
+												<ReactAudioPlayer
+													src={phonetic.audio}
+													controls
+													className='flex audio-player'
 												/>
-												</div>
-										):phonetic.audio.endsWith('us.mp3')? 
-												<div>
-													<h2 className='font-bold' > US prononciation</h2>
-											<ReactAudioPlayer
-												src={phonetic.audio}
-												controls
-												className='flex audio-player'
+											</div>
+										) : phonetic.audio.endsWith(
+												"us.mp3"
+										  ) ? (
+											<div>
+												<h2 className='font-bold'>
+													
+													US pronunciation
+												</h2>
+												<ReactAudioPlayer
+													src={phonetic.audio}
+													controls
+													className='flex audio-player'
 												/>
-												
-									</div>	 :null
-									}
-											<br />
+											</div>
+										) : null}
+										<br />
 									</div>
 								))}
 								{w.license ? (
@@ -175,7 +178,6 @@ const Input = ({searchWord, setSearchWord}: Props) => {
 					);
 				})}
 			</ul>
-			
 		</div>
 	);
 };
