@@ -58,7 +58,7 @@ const Input = ({searchWord, setSearchWord}: Props) => {
 	useEffect(() => {
 		asyncData();
 	}, [searchWord]);
-	console.log(wordInfo[0].phonetics);
+	console.log(Object.keys(wordInfo))
 
 	return (
 		<div>
@@ -95,7 +95,7 @@ const Input = ({searchWord, setSearchWord}: Props) => {
 								<div className='border-b-4'>
 									<div className='flex justify-left '>
 										<h1 className='text-4xl font-bold'>
-											{w.word.charAt(0).toUpperCase() +
+								 			{w.word.charAt(0).toUpperCase() +
 												w.word.slice(1)}
 										</h1>
 										<h5 className='mt-2 ml-1'>
@@ -124,7 +124,7 @@ const Input = ({searchWord, setSearchWord}: Props) => {
 								</div>
 								<br />
 								<p>
-									{" "}
+							
 									{w.meanings[0].definitions[0].definition}
 								</p>
 
