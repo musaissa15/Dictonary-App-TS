@@ -77,11 +77,11 @@ const Input = ({searchWord, setSearchWord}: Props) => {
 						placeholder='Enter a Word'
 						className='border-2 border-red-400 rounded-lg input'
 					/>
-					<button
+					{/* <button
 						type='submit'
 						className='button rounded-lg border-2 border-red-200'>
 						Search
-					</button>
+					</button> */}
 				</div>
 			</form>
 			<br />
@@ -112,12 +112,12 @@ const Input = ({searchWord, setSearchWord}: Props) => {
 									{w.meanings[0].synonyms.length === 1 ? (
 										<h3>
 											Synonym:
-											{w.meanings[0].synonyms.join(" ")}
+											{' ' + w.meanings[0].synonyms.join(" ")}
 										</h3>
 									) : w.meanings[0].synonyms.length > 1 ? (
 										<h3>
 											Synonyms:
-											{w.meanings[0].synonyms.join(", ")}
+											{' ' + w.meanings[0].synonyms.join(", ")}
 										</h3>
 									) : w.meanings[0].synonyms.length ===
 									  0 ? null : null}
