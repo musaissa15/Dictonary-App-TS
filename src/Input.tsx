@@ -58,14 +58,13 @@ const Input = ({searchWord, setSearchWord}: Props) => {
 	useEffect(() => {
 		asyncData();
 	}, [searchWord]);
-	console.log(Object.keys(wordInfo))
+	
 
 	return (
 		<div>
 			<form onSubmit={handleSubmit}>
 				<div className='flex justify-start border-b-4 title'>
 					<h1 className=' inline-block md:inline text-4xl '>
-						
 						Dictionary
 					</h1>
 				</div>
@@ -95,7 +94,7 @@ const Input = ({searchWord, setSearchWord}: Props) => {
 								<div className='border-b-4'>
 									<div className='flex justify-left '>
 										<h1 className='text-4xl font-bold'>
-								 			{w.word.charAt(0).toUpperCase() +
+											{w.word.charAt(0).toUpperCase() +
 												w.word.slice(1)}
 										</h1>
 										<h5 className='mt-2 ml-1'>
@@ -112,21 +111,24 @@ const Input = ({searchWord, setSearchWord}: Props) => {
 									{w.meanings[0].synonyms.length === 1 ? (
 										<h3>
 											Synonym:
-											{' ' + w.meanings[0].synonyms.join(" ")}
+											{" " +
+												w.meanings[0].synonyms.join(
+													" "
+												)}
 										</h3>
 									) : w.meanings[0].synonyms.length > 1 ? (
 										<h3>
 											Synonyms:
-											{' ' + w.meanings[0].synonyms.join(", ")}
+											{" " +
+												w.meanings[0].synonyms.join(
+													", "
+												)}
 										</h3>
 									) : w.meanings[0].synonyms.length ===
 									  0 ? null : null}
 								</div>
 								<br />
-								<p>
-							
-									{w.meanings[0].definitions[0].definition}
-								</p>
+								<p>{w.meanings[0].definitions[0].definition}</p>
 
 								{w.meanings[0].definitions[0].example ? (
 									<p>
@@ -141,7 +143,6 @@ const Input = ({searchWord, setSearchWord}: Props) => {
 										{phonetic.audio.endsWith("uk.mp3") ? (
 											<div>
 												<h2 className='font-bold'>
-													
 													Uk pronunciation
 												</h2>
 												<ReactAudioPlayer
@@ -155,7 +156,6 @@ const Input = ({searchWord, setSearchWord}: Props) => {
 										  ) ? (
 											<div>
 												<h2 className='font-bold'>
-													
 													US pronunciation
 												</h2>
 												<ReactAudioPlayer
